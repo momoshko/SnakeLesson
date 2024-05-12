@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wkioj2tyyu32"]
+
+[ext_resource type="Texture2D" uid="uid://brwqw7kkj1o6s" path="res://Assets/wormik.png" id="1_0sv4i"]
+
+[node name="SnakeSegment" type="Sprite2D"]
+texture = ExtResource("1_0sv4i")

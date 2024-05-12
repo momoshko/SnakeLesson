@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://ttxifqw4nkgp"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_0owd7"]
+[ext_resource type="PackedScene" uid="uid://wkioj2tyyu32" path="res://Scenes/snake_segment.tscn" id="2_8a36l"]
+[ext_resource type="Texture2D" uid="uid://bn4mdfsef5uhv" path="res://Assets/background.png" id="2_ytebt"]
+[ext_resource type="PackedScene" uid="uid://bd7njmqaywruh" path="res://Scenes/hud.tscn" id="3_jpy6l"]
+[ext_resource type="Texture2D" uid="uid://clyrrkrdxv1eb" path="res://Assets/tea.png" id="5_jpn21"]
+[ext_resource type="AudioStream" uid="uid://c2xfjbct7lfx" path="res://Sounds/Am.mp3" id="6_mmlma"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_0owd7")
+snake_scene = ExtResource("2_8a36l")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(500, 471)
+scale = Vector2(1.42857, 1.33746)
+texture = ExtResource("2_ytebt")
+
+[node name="Hud" parent="." instance=ExtResource("3_jpy6l")]
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Food" type="Sprite2D" parent="."]
+position = Vector2(23, 25)
+scale = Vector2(1.08469, 0.975)
+texture = ExtResource("5_jpn21")
+
+[node name="AmSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mmlma")
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
